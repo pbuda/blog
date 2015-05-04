@@ -1,0 +1,24 @@
+---
+layout: post
+title: "Warsjawa 2012"
+date: 2012-10-29 13:02
+comments: true
+categories: 
+---
+I didn't attent any conference for the past 18 months. Last time I was on one was when I was sent to eye-opening meeting with Greg Young. Recently a friend of mine suggested that we should go to [Warsjawa 2012](http://warszawa.jug.pl/warsjawa-2012) conference as it's free and relatively close to Lublin.
+
+We decided to sign up for a workshop called 'One day with a difficult client' that was lead by guys from [SoftwareMill](http://softwaremill.com/). The idea of the workshop was to show attendees some common problems people face when working with their clients. Even though I don't work directly with our client every day I read a few things here and there how they can be PITA and I had some expectations regarding this workshop. It turned out great and here's how it went.
+
+The whole workshop began with a short, but fun, game which helped every attendee remember other's names. This game is very simple: just say your name and make up some kind of symbol (V sign, finger on your mouth, anything) and the person after you has to repeat EVERY name and EVERY symbol before. There were 13 attendees and 3 leaders so after 16 rounds we pretty much knew every name. Very fun way of introducing a group of people to each other, and very efficient at that.
+
+After that we were split into three groups and each group was given a contract to build a space capsule. We were presented with some stuff that we could use (scissors, paper, glue, boxes, foil - you get the picture) and we had some time to think about the contract. The whole game was to take around 1,5 hours and it was split into a few 15-20 minute sprints. After each sprint our client would come and look at what we've done and answer questions.
+
+When the time run out we were taken to the launch site - the capsule had to actually fly! The clients were mostly happy and we mostly delivered what they wanted. Or did we? That was the whole point of the workshop. We started out with a contract for a space capsule and ended up with a prototype model that instead of flying out to space was to fly just three meters straight from the launcher, which wasn't a rocket booster but a simple slingshot.
+
+At the end, we were doing retrospectives in teams and shared our experiences with others. Some teams had problems other didn't and guys from SoftwareMill told us what we did good and where our attention should be next time. I can't tell for other teams, but our team didn't have most of the problems, and we also did the best looking capsule! Unfortunately we did one thing wrong - we emphasized one aspect of the capsule without much regard to another which resulted in the best looking and most secure capsule that... didn't fly.
+
+There were a few things I didn't like though. The difficult client didn't appear that difficult after all. I expected the client to be a little more aggresive, inconsistent (the 'client' had three representatives and on each meeting another representative was present, and mostly agreed with his/her colegues) and impatient. But apparently some previous groups had problems already and this workshop was meant to be fun and not hardcore :) I can live with that.
+
+Another 'thing' was that shortly after the workshop was over, everyone was gone. We couldn't talk more about what happened and share more experiences, not only regarding workshops. I'd definately fix that next time because for me this was the worst thing to happen.
+
+Overall, it was one of the best days lately. Lots of laughter, lots of good experience and lots of great people to work with. I think I will attend Warsjawa 2013 :)

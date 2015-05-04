@@ -1,0 +1,25 @@
+---
+layout: post
+title: "Microsoft Natural Ergonomic Keyboard 4000"
+date: 2013-05-22 14:00
+comments: true
+categories: hardware
+---
+
+I've been using computers for almost 28 years now (yes, my first ever computer was ZX Spectrum when I was 3) and thoughout that time I was always using traditional keyboards. Some of them were better, some of them were worse, but I never thought about all those fancy 'flat', waved or ergonomic keyboards. That changed recently as I got a nice and shiny Macbook Pro.
+<!-- more -->
+
+I've been using laptops before and I always disgusted their keyboards - small keys, uncomfortable layout for things like arrows, PgUp/PgDown keys. Macbook's Pro keyboard is allright (it doesn't have any additional keys beyond arrows) but it's also smaller than your typical desktop keyboard. After a few weeks of using it I feld uncomfortable, my wrists were in very unnatural position and I've decided it's high time to check out on of these ergonomic layouts.
+
+When I started looking for ergonomic keyboards, I immediately found [Kinesis Ergo Freestyle 2](http://www.kinesis-ergo.com/freestyle2.htm). It seems alright, being split you can put it at exactly right angle for your wrists, it comes with some accessory that will be very helpful for me in a while (I am getting a proper standing desk soon) but it ain't cheap (I'd need to buy it from some EU resseler, i.e. at £127 excl. VAT). Of course I also found [Goldtouch V2 Adjustable Comfort Keyboard](http://www.goldtouch.com/p-2-goldtouch-v2-adjustable-comfort-keyboard-pc-mac-compatible-usb.aspx) and it's also quite nice and at $119 it's cheaper than Freestyle 2, but I'd have to also add VAT and customs to that, so again, it's not cheap. My dream keyboard is now the one made by [Trully Ergonomic](http://www.trulyergonomic.com/) - it is expensive, but it's compact (I can live without numeric pad), it's got mechanical keys, awesome looks, Mac keys - just awesome. However at price point of somewhere around £200 it's far beyond my budget at this moment (I do accept donations though :D).
+
+Many people recommended a much cheaper solution to all these trully great keyboards - the [Microsoft Natural Ergonomic Keyboard 4000](http://www.microsoft.com/hardware/en-us/p/natural-ergonomic-keyboard-4000). I bought it at 180PLN (so it's around $60) and what's different in this keyboard from the ones I mentioned earlier is that it's quite big. It is a full keyboard, with numeric pad, typical insert, delete, home, end, pgup and pgdown keys. It's not flat like Kinesis or Goldtouch but instead curved in the middle with very noticable gap between key sections. It's wristpad is covered with leather-like material which to my astonishment prevents my hands from sweating. The angle of the keyboard is nice, and since I started using it all my wrist pain is gone now.
+
+It took me a few days to adapt to the new layout, mainly because I had a bit different key stroking habits, i.e. I used to hit B key with right hand and on this keyboard B is properly placed for left hand. Despite the first few problems with mishits and typos, now after about three weeks of using it it feels great and my typing speed is almost back to normal.
+
+The keys are not that loud, when typing slowly (like in games) it's almost noiseless; but when you start going full-speed (like writing a blog post) it starts to get ugly, but who cares? Keys are very different, some are smaller (q, a, z) but in this case it means normal for other keyboards; other keys are larger (t, n, h, g) and they take a lot of space. This keyboard forces you to change yoruwritng habits and I think that's good, because now I type without moving my wrists to much.
+
+It has drawbacks though. Beging a PC keyboard, it lacks Mac keyboards, but if you're typing without looking at keys, then that's not really a big problem. Another bad thing for me is this keyboard's size - it's a full keyboard, so it's quite wide. To effectively use it, you'd rather want the middle of the letter section to be in front of you, pushing the numeric pad to the far right. This is necessary for both wrists to lay loosely on the keyboard, but it makes usage of the mouse a bit inconvenient - you have to reach quite far to grab it and there goes the ergonomics. That's it, I can't really think of any other problems with it, which for me makes this $60 keyboard a real bang for the buck. I think that the only thing that I'd ever add to this keyboard is wireless capability - Macbook Pro has 2 USB ports and having both used for keyboard and mouse I can no longer connect my pendrives to it :(
+
+
+I hope you'll find this little review enough to buy that Microsoft keyboard, or at least start some interest in ergonomic keyboard designs. Trust me, once you try an ergonomic keyboard, you will feel awkward trying to type on a normal one :)
