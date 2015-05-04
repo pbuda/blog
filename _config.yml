@@ -3,16 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
+title: Software Development Ramblings
+subtitle: Java, Scala and Android
 description:
-author: John Doe
+author: Piotr Buda
 language:
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://www.piotrbuda.eu
 root: /
 permalink: :year/:month/:title/
 permalink_defaults:
@@ -70,3 +70,5 @@ deploy:
   type: git
   repo: https://github.com/piotrbudaeu/piotrbudaeu.github.io
   branch: master
+
+disqus_shortname: piotrbuda
