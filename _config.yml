@@ -14,7 +14,7 @@ timezone:
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://www.piotrbuda.eu
 root: /
-permalink: :year/:month/:title/
+permalink: :year/:month/:title.html
 permalink_defaults:
 
 # Directory
@@ -68,7 +68,7 @@ theme: landscape-jr0cket
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/piotrbudaeu/piotrbudaeu.github.io
+  repo: https://github.com/pbuda/pbuda.github.io
   branch: master
 
 disqus_shortname: piotrbuda
