@@ -1,7 +1,7 @@
 title: "Implementing chat application with Pony lang"
 date: 2015-05-14
 tags:
-- pony
+- pony lang
 - actors
 - capabilities
 - concurrency
