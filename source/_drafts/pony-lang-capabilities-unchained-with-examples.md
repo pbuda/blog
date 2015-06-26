@@ -25,9 +25,46 @@ Pony capabilities are a kind of qualifier with which you can mark your variables
 - `trn` (Transition) allows you to use variable as a write-only.
 - `tag` (Tag) is used for identification. You can neither write nor read from that variable, but you can use it to identify objects or share it with other actors.
 
-One important thing to note is that capabilities are defined for variables. This means that you define a type and then can use variables with different capabilities, but when you define a type you can specify a default capability that will be used if no specific capability will be defined when declaring a variable of that type. If you don't do that, then `class`es are defined as `ref`s while `actor`s are defined as `tag`s.
+By default, all `class`es are `ref`s and all `actor`s are `tag`s. Variables are also 'ref's and functions return `box`es. Behaviours always return the receiver as `tag`.
 
-###Ref
+### Defining capabilities
+
+You can define capabilities in several places with fields and variables being the most common. But there are other places too. While `actor`s can never specify the default capability you can change that for `class`es.
+```pony
+class Foo val
+```
+The above definition states that all occurences of `class Foo` will always be `val`s so you will not be able to do
+```pony
+let foo:Foo = Foo
+```
+because the default capability for `Foo` is `val` and Foo implicit constructor will return `ref`. However Pony implements type inference and this notation would work
+```pony
+let foo = Foo
+```
+as this notation will create a `foo:Foo ref` variable. Also this is just the default, so you can easily override it at the variable declaration time
+```pony
+let foo:Foo ref = Foo
+```
+Functions in Pony return `box`s by default, but you can change that by providing capability name between `fun` and function's name, like
+```pony
+fun iso produceData():Data
+```
+This function will now return `iso` results.
+
+Constructors by default return `ref`s but you can also specify a capability to return by constructor
+```pony
+class User
+  let username:String
+  new iso create(username':String) =>
+    username = username'
+```
+This might be helpful if you know that you will always use this class with certain capability, or providing a secondary constructor for most common use cases.
+
+### Aliasing
+
+
+
+### Ref
 
 ### Val
 
@@ -38,4 +75,3 @@ One important thing to note is that capabilities are defined for variables. This
 ### Trn
 
 ### Tag
-
