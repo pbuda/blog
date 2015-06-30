@@ -16,10 +16,10 @@ Pony compiler can perform checks whether your program only shares immutable data
 
 ### Pony Capabilities
 
-Pony capabilities are a kind of qualifier with which you can mark your variables (not types!) to describe a way the variable will be used in a concurrent program. There are six capabilities to choose from and some of them are for immutable data, some for isolation and one opaque that prevents object from being accessed.
+Pony capabilities are a kind of qualifier with which you can describe a way the language construct will be used in a concurrent program. There are six capabilities to choose from and some of them are for immutable data, some for isolation and one opaque that prevents object from being accessed.
 
 - `ref` (Reference) is your normal, mutable data. This data can be freely modified and read by a single actor or other variables, but it can't be shared with other actors.
-- `val` (Value) is for immutable data, which means that noone can modify it, so it's safe to read and share that data.
+- `val` (Value) is for immutable data, which means that no-one can modify it, so it's safe to read and share that data.
 - `iso` (Isolated) marks a variable as being isolated so there's no other variable that has access to that data, therefore it's safe for your actor to read and write to it.
 - `box` (Box) means that this data is read-only to you. There might be other variables writing to that data, but you can only read it.
 - `trn` (Transition) allows you to use variable as a write-only.
@@ -181,3 +181,30 @@ class Foo
 Variables default to whatever they are created for. When instantiating a class, then it will default to `ref` or
 if class has a default set, to whatever was set in class definition. For actors it will always be `tag` because actors
 are always `tag`s. For primitives it will be `val`.
+
+As mentioned in the section about classes, variables will default to capability specified in class (or `ref` if none was specified). This can be changed
+by providing capability name right after type declaration
+```pony
+actor Main
+  new create(env:Env) =>
+  var foo:Foo iso = recover Foo end
+
+class Foo val
+```
+
+For function return types however, if you don't use type inference (you define type of your variable explicitly) then you have to provide the capability that can be used
+as alias capability (aliasing is out of scope of this article). In the example below we use `box` as the variable capability but we could also use `val` or `tag`. This is because
+as mentioned before, variables default to whatever is the default of their type.
+```pony
+actor Main
+  new create(env:Env) =>
+  var foo:Foo = Foo
+  var s:Seq[String] box = foo.get()
+
+class Foo
+  fun get():Seq[String] val => recover Array[String] end
+```
+
+### Summary
+
+Pony capabilities are used throughout the Pony code so some sensible defaults need to be set. Knowledge of these can help you understand compiler warnings and adapt your code to conform to capability rules.
