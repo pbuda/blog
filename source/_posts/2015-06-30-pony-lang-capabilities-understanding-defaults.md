@@ -1,6 +1,13 @@
 title: "Pony lang capabilities - understanding the defaults"
 date: 2015-06-30 13:18:20
 tags:
+- pony
+- capabilities
+- defaults
+- concurrency
+categories:
+- Software Development
+- Pony
 ---
 
 
