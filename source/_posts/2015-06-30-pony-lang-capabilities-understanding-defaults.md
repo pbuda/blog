@@ -1,10 +1,8 @@
 title: "Pony lang capabilities - understanding the defaults"
+date: 2015-06-30 13:18:20
 tags:
-- pony lang
-- capabilities
-- pony guarantees
-- concurrency
 ---
+
 
 Pony offers concurrency programming using actors. However safe concurrency is hard. In order to make it safe, you have to remember about a few things. First of all, passing mutable data is hard, because concurrent reading and writing to that data can lead to garbage being store, or overwritten state. So concurrent programs have to employ safety mechanisms (such as locks, semaphores) to work with mutable data. However it's error prone and introduces overhead, not to mention performance impact. [Pony tutorial](http://tutorial.ponylang.org/capabilities/introduction/) on capabilities mentions two ways of sharing data between actors - sharing immutable data and passing isolated data.
 
