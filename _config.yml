@@ -72,3 +72,8 @@ deploy:
   branch: master
 
 disqus_shortname: piotrbuda
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 5
