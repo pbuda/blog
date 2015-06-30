@@ -1,4 +1,4 @@
-title: "Pony lang capabilities unchained (with examples)"
+title: "Pony lang capabilities - understanding the defaults"
 tags:
 - pony lang
 - capabilities
@@ -25,53 +25,159 @@ Pony capabilities are a kind of qualifier with which you can mark your variables
 - `trn` (Transition) allows you to use variable as a write-only.
 - `tag` (Tag) is used for identification. You can neither write nor read from that variable, but you can use it to identify objects or share it with other actors.
 
-By default, all `class`es are `ref`s and all `actor`s are `tag`s. Variables are also 'ref's and functions return `box`es. Behaviours always return the receiver as `tag`.
+Some language constructs specify default capabilities that make sense in most cases. Below we will
 
-### Defining capabilities
+### Actor default
 
-You can define capabilities in several places with fields and variables being the most common. But there are other places too. While `actor`s can never specify the default capability you can change that for `class`es.
+By default all actors are `tag`s and you can't change it - compiler will complain about such attempt:
+```pony
+actor Act val
+  be dosmth() => None
+```
+```
+/Volumes/Personal/pony/capabilities/main.pony:12:11: actor cannot specify default capability
+actor Act val
+```
+
+By being a `tag` actors can be safely passed between your objects and you can call behaviors on them.
+```pony
+actor Main
+  new create(env:Env) =>
+  var foo:Foo = Foo
+  let a = Act
+  foo.dosmth(a)
+
+class Foo
+  new create() => None
+  fun dosmth(a:Act) =>
+    a.dosmth()
+
+actor Act
+  be dosmth() => None
+```
+
+### Primitive default
+
+Primitives are always `val`s and similar to actors you cannot specify a capability for primitives.
+
+### Class default
+
+When you define a new `class` by default it's a `ref`. This means that when you create a new instance of this class it will default to `ref` but you can override that by defining a capability on variable (more on that later).
+
+You can however specify the default capability your new instances will default to:
+```pony
+actor Main
+  new create(env:Env) =>
+  var foo:Foo = Foo
+
+class Foo box
+  var a:Array[U8] = Array[U8]
+  new create() => None
+```
+
+Variable `foo` in this case is a `box`. That is because you specified a default capability in the class definition. If you now try to modify the `a` variable compiler will complain about unsafe operation
+```pony
+actor Main
+  new create(env:Env) =>
+  var foo:Foo = Foo
+  foo.a = Array[U8]
+
+class Foo box
+  var a:Array[U8] = Array[U8]
+  new create() => None
+```
+```
+/Volumes/Personal/pony/capabilities/main.pony:4:9: not safe to write right side to left side
+  foo.a = Array[U8]
+```
+
+### Constructor default
+
+Constructors in Pony also have a default return type, which is `ref`. It's easily changeable though, by specifying the capability name right after the `new` keyword.
 ```pony
 class Foo val
+  new val create() => None
 ```
-The above definition states that all occurences of `class Foo` will always be `val`s so you will not be able to do
+
+It is important to remember that while specifying the class default makes your defined variable use the same capability as class, it might be incompatible with the constructor capability.
 ```pony
-let foo:Foo = Foo
+actor Main
+  new create(env:Env) =>
+  var foov:Foo = Foo
+
+class Foo val
+  new create() => None
 ```
-because the default capability for `Foo` is `val` and Foo implicit constructor will return `ref`. However Pony implements type inference and this notation would work
+```
+/Volumes/Personal/pony/capabilities/main.pony:3:16: right side must be a subtype of left side
+  var foov:Foo = Foo
+               ^
+/Volumes/Personal/pony/capabilities/main.pony:6:3: right side type: Foo ref
+  new create() => None
+  ^
+/Volumes/Personal/pony/capabilities/main.pony:3:12: left side type: Foo val
+  var foov:Foo = Foo
+```
+
+One of possible solutions is to specify the returning capability for `Foo`s constructor.
 ```pony
-let foo = Foo
+class Foo val
+  new val create() => None
 ```
-as this notation will create a `foo:Foo ref` variable. Also this is just the default, so you can easily override it at the variable declaration time
+
+Another possibility is to use the `recover` block but this is out of scope of this article.
 ```pony
-let foo:Foo ref = Foo
+actor Main
+  new create(env:Env) =>
+  var foov:Foo = recover val Foo end
+
+class Foo val
+  new create() => None
 ```
-Functions in Pony return `box`s by default, but you can change that by providing capability name between `fun` and function's name, like
+
+### Function default
+
+Functions can have capabilities defined in two places in their declaration. The first place is function's return type
+capability. This uses class defaults but can be overridden by specifying a concrete capability.
 ```pony
-fun iso produceData():Data
-```
-This function will now return `iso` results.
+actor Main
+  new create(env:Env) =>
+    let f = Foo
 
-Constructors by default return `ref`s but you can also specify a capability to return by constructor
+class Foo
+  let a:String = "a"
+
+  fun get_a():String iso => a.clone()
+```
+
+`String` is a `val` by default but here we define in our function that we want the resulting type to be actually `String iso`.
+
+The other place you can set the capability on a function declaration is right after the `fun` keyword. This capability will define
+how the function can behave. By default this capability is `box` which means that data in the owner class is read only to that method.
+This plays well with `box` definition - there are other places the variables can change (other methods that can change the class fields)
+but you can only read them. Trying to modify fields in a default `box` function will make compiler complain
 ```pony
-class User
-  let username:String
-  new iso create(username':String) =>
-    username = username'
+class Foo
+  var a:String = "a"
+
+  fun get_a():String =>  a = a + "b"
 ```
-This might be helpful if you know that you will always use this class with certain capability, or providing a secondary constructor for most common use cases.
+```
+/Volumes/Personal/pony/capabilities/main.pony:4:28: cannot write to a field in a box function
+  fun get_a():String =>  a = a + "b"
+                           ^
+```
 
-### Aliasing
+But change that to something that is write capable (`iso`, `trn`, `ref`) and you can modify your class contents again
+```pony
+class Foo
+  var a:String = "a"
 
+  fun ref get_a():String =>  a = a + "b"
+```
 
+### Variable default
 
-### Ref
-
-### Val
-
-### Iso
-
-### Box
-
-### Trn
-
-### Tag
+Variables default to whatever they are created for. When instantiating a class, then it will default to `ref` or
+if class has a default set, to whatever was set in class definition. For actors it will always be `tag` because actors
+are always `tag`s. For primitives it will be `val`.
