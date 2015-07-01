@@ -1,4 +1,4 @@
-title: "ponylang-intellij-plugin"
+title: "Intellij plugin to support Pony"
 date: 2015-07-01 13:10:20
 tags:
 categories:
