@@ -30,7 +30,7 @@ Pony capabilities are a kind of qualifier with which you can describe a way the 
 - `trn` (Transition) allows you to use variable as a write-only.
 - `tag` (Tag) is used for identification. You can neither write nor read from that variable, but you can use it to identify objects or share it with other actors.
 
-Some language constructs specify default capabilities that make sense in most cases. Below we will
+Some language constructs specify default capabilities that make sense in most cases. Below we will explore what these defaults are.
 
 ### Actor default
 
